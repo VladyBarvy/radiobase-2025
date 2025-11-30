@@ -1,0 +1,181 @@
+.search-results {
+  padding: 20px;
+  height: 100%;
+  overflow-y: auto;
+  width: 800px;
+}
+
+.search-results-header {
+  margin-bottom: 24px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.search-results-header h2 {
+  margin: 0 0 8px 0;
+  font-size: 24px;
+  font-weight: 600;
+  color: #2d3748;
+}
+
+.search-query {
+  margin: 0;
+  font-size: 16px;
+  color: #718096;
+}
+
+.results-count {
+  margin: 4px 0 0 0;
+  font-size: 14px;
+  color: #a0aec0;
+}
+
+.no-results {
+  text-align: center;
+  padding: 60px 20px;
+  color: #a0aec0;
+}
+
+.no-results .fa-search {
+  margin-bottom: 16px;
+  opacity: 0.5;
+}
+
+.no-results h4 {
+  margin: 0 0 8px 0;
+  font-weight: 500;
+}
+
+.no-results p {
+  margin: 0;
+  font-size: 14px;
+}
+
+.search-results-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.search-result-item {
+  background: white;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  padding: 16px;
+  cursor: pointer;
+  transition: all 0.2s;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.search-result-item:hover {
+  border-color: #4299e1;
+  box-shadow: 0 2px 8px rgba(66, 153, 225, 0.15);
+  transform: translateY(-1px);
+}
+
+.result-item-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+.result-item-main {
+  flex: 1;
+}
+
+.result-item-name {
+  margin: 0 0 8px 0;
+  font-size: 18px;
+  font-weight: 600;
+  color: #2d3748;
+}
+
+.result-item-category {
+  margin: 0 0 6px 0;
+  font-size: 14px;
+  color: #718096;
+  font-weight: 500;
+}
+
+.result-item-storage {
+  margin: 0 0 6px 0;
+  font-size: 14px;
+  color: #4a5568;
+}
+
+.result-item-description {
+  margin: 8px 0 0 0;
+  font-size: 14px;
+  color: #718096;
+  line-height: 1.4;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.result-item-meta {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 8px;
+  flex-shrink: 0;
+  width: 100px;
+}
+
+.result-item-quantity {
+  font-size: 14px;
+  font-weight: 500;
+  color: #38a169;
+  white-space: nowrap;
+}
+
+.btn-edit-result {
+  background: #4299e1;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  padding: 8px 12px;
+  cursor: pointer;
+  transition: all 0.2s;
+  display: flex; 
+  align-items: center;
+  justify-content: center;
+  gap: 8px; 
+  width: 150px;
+  height: 30px;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.btn-edit-result svg {
+  flex-shrink: 0;
+}
+
+.btn-edit-result:hover {
+  background: #3182ce;
+  transform: scale(1.05);
+}
+
+/* Стили для иконки внутри кнопки */
+.btn-edit-result .fas {
+  font-size: 14px;
+  color: white;
+}
+
+
+@media (max-width: 768px) {
+  .result-item-content {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .result-item-meta {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    margin-top: 12px;
+  }
+}

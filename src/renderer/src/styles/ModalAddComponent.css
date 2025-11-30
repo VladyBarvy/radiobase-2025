@@ -1,0 +1,519 @@
+/* renderer/src/styles/ModalAddComponent.css */
+.modal-add-component {
+  max-width: 700px;
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+.modal-add-component .modal-body {
+  padding: 20px 24px;
+}
+
+.form-section {
+  margin-bottom: 24px;
+}
+
+.section-title {
+  font-weight: 600;
+  margin-bottom: 12px;
+  font-size: 16px;
+  color: #2d3748;
+  display: flex;
+  align-items: center;
+}
+
+.section-title::before {
+  content: '';
+  display: inline-block;
+  width: 4px;
+  height: 16px;
+  background-color: #4299e1;
+  margin-right: 8px;
+  border-radius: 2px;
+}
+
+.form-row {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.form-group {
+  flex: 1;
+}
+
+.form-group.full-width {
+  width: 100%;
+}
+
+.form-control {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid #e2e8f0;
+  border-radius: 6px;
+  font-size: 14px;
+  transition: all 0.2s;
+  box-sizing: border-box;
+}
+
+.form-control:focus {
+  outline: none;
+  border-color: #4299e1;
+  box-shadow: 0 0 0 3px rgba(66, 153, 225, 0.1);
+}
+
+/* Стили для datetime */
+.datetime-display-container {
+  padding: 12px;
+  background-color: #f7fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 6px;
+}
+
+.datetime-display {
+  font-size: 16px;
+  font-weight: 600;
+  color: #2d3748;
+  text-align: center;
+  margin-bottom: 8px;
+}
+
+.datetime-hint {
+  font-size: 12px;
+  color: #718096;
+  text-align: center;
+  font-style: italic;
+}
+
+/* СТИЛИ ДЛЯ ТАБЛИЧНОГО ОТОБРАЖЕНИЯ ПАРАМЕТРОВ */
+.parameters-table-container {
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  overflow: hidden;
+  background: white;
+  margin-bottom: 15px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.parameters-table-header {
+  display: flex;
+  background: #f8fafc;
+  border-bottom: 2px solid #e2e8f0;
+  font-weight: 600;
+  color: #2d3748;
+  font-size: 14px;
+}
+
+.parameter-name-header,
+.parameter-value-header,
+.parameter-actions-header {
+  padding: 12px 16px;
+  font-weight: 600;
+}
+
+.parameter-name-header {
+  flex: 2;
+  border-right: 1px solid #e2e8f0;
+  background: #f1f5f9;
+}
+
+.parameter-value-header {
+  flex: 3;
+  border-right: 1px solid #e2e8f0;
+}
+
+.parameter-actions-header {
+  flex: 0.5;
+  text-align: center;
+  background: #f1f5f9;
+}
+
+.parameters-table-body {
+  max-height: 300px;
+  overflow-y: auto;
+}
+
+.parameter-table-row {
+  display: flex;
+  border-bottom: 1px solid #f1f5f9;
+  transition: background-color 0.2s;
+  align-items: stretch;
+  background: white;
+}
+
+.parameter-table-row:hover {
+  background-color: #f8fafc;
+}
+
+.parameter-table-row:last-child {
+  border-bottom: none;
+}
+
+.parameter-name-cell,
+.parameter-value-cell,
+.parameter-actions-cell {
+  padding: 8px 16px;
+  display: flex;
+  align-items: center;
+}
+
+.parameter-name-cell {
+  flex: 2;
+  border-right: 1px solid #f1f5f9;
+  background: #fafbfc;
+}
+
+.parameter-value-cell {
+  flex: 3;
+  border-right: 1px solid #f1f5f9;
+}
+
+.parameter-actions-cell {
+  flex: 0.5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #fafbfc;
+}
+
+.parameter-input {
+  width: 100%;
+  border: 1px solid #e2e8f0;
+  border-radius: 4px;
+  padding: 8px 12px;
+  font-size: 14px;
+  transition: all 0.2s;
+  background: white;
+  box-sizing: border-box;
+}
+
+.parameter-input:focus {
+  border-color: #4299e1;
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(66, 153, 225, 0.1);
+}
+
+.parameter-input::placeholder {
+  color: #a0aec0;
+  font-size: 13px;
+}
+
+.table-remove-btn {
+  background: #e53e3e;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
+  transition: all 0.2s;
+  flex-shrink: 0;
+}
+
+.table-remove-btn:hover {
+  background: #c53030;
+  transform: scale(1.05);
+}
+
+.table-add-btn {
+  background: #38a169;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  transition: all 0.2s;
+  display: block;
+  width: 100%;
+  text-align: center;
+  margin-top: 0;
+}
+
+.table-add-btn:hover {
+  background: #2f855a;
+  transform: translateY(-1px);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Старые стили параметров (можно удалить после тестирования) */
+.parameter-row {
+  display: none; /* Скрываем старый стиль */
+}
+
+.parameter-key,
+.parameter-value {
+  display: none; /* Скрываем старый стиль */
+}
+
+.parameter-remove-btn.old {
+  display: none; /* Скрываем старый стиль */
+}
+
+.add-param-btn.old {
+  display: none; /* Скрываем старый стиль */
+}
+
+.divider {
+  height: 1px;
+  background-color: #e2e8f0;
+  margin: 20px 0;
+}
+
+/* Загрузка изображения */
+.image-upload-section {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.image-preview {
+  width: 100%;
+  height: 200px;
+  border: 2px dashed #e2e8f0;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background-color: #f7fafc;
+}
+
+.image-preview-img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+.image-placeholder {
+  color: #a0aec0;
+  text-align: center;
+  padding: 20px;
+}
+
+.file-input-wrapper {
+  display: flex;
+  justify-content: center;
+}
+
+.file-input {
+  display: none;
+}
+
+
+
+
+
+.file-input-label {
+  background: #4299e1;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  padding: 8px 12px;
+  cursor: pointer;
+  transition: all 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 200px;
+  height: 30px;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.file-input-label svg {
+  flex-shrink: 0;
+}
+
+.file-input-label:hover {
+  background: #3182ce;
+  transform: scale(1.05);
+}
+
+/* Стили для иконки внутри кнопки */
+.file-input-label .fas {
+  font-size: 14px;
+  color: white;
+}
+
+
+
+
+
+
+
+
+
+
+
+/* Адаптивность */
+@media (max-width: 768px) {
+  .modal-add-component {
+    margin: 20px;
+    max-height: calc(100vh - 40px);
+    max-width: calc(100vw - 40px);
+  }
+  
+  /* Адаптивность для таблицы параметров */
+  .parameters-table-header {
+    display: none;
+  }
+  
+  .parameter-table-row {
+    flex-direction: column;
+    padding: 16px;
+    border-bottom: 2px solid #e2e8f0;
+    background: #f8fafc;
+    border-radius: 6px;
+    margin-bottom: 8px;
+  }
+  
+  .parameter-name-cell,
+  .parameter-value-cell,
+  .parameter-actions-cell {
+    width: 100%;
+    border-right: none;
+    padding: 8px 0;
+    background: transparent;
+  }
+  
+  .parameter-name-cell {
+    border-bottom: 1px solid #e2e8f0;
+    padding-bottom: 12px;
+    margin-bottom: 8px;
+  }
+  
+  .parameter-name-cell::before {
+    content: "Параметр:";
+    font-weight: 600;
+    color: #4a5568;
+    display: block;
+    margin-bottom: 4px;
+    font-size: 13px;
+  }
+  
+  .parameter-value-cell::before {
+    content: "Значение:";
+    font-weight: 600;
+    color: #4a5568;
+    display: block;
+    margin-bottom: 4px;
+    font-size: 13px;
+  }
+  
+  .parameter-actions-cell {
+    justify-content: flex-start;
+    margin-top: 12px;
+    padding-top: 12px;
+    border-top: 1px solid #e2e8f0;
+  }
+  
+  .table-remove-btn {
+    width: 100%;
+    height: 36px;
+    font-size: 14px;
+  }
+  
+  .form-row {
+    flex-direction: column;
+  }
+  
+  .datetime-container {
+    flex-direction: column;
+  }
+  
+  .datetime-now-btn {
+    width: 100%;
+  }
+}
+
+/* Стили для текстовой области описания */
+.textarea-description {
+  resize: vertical;
+  min-height: 80px;
+  font-family: inherit;
+  line-height: 1.5;
+}
+
+.textarea-description:focus {
+  outline: none;
+  border-color: #4299e1;
+  box-shadow: 0 0 0 3px rgba(66, 153, 225, 0.1);
+}
+
+/* Скроллбар для таблицы параметров */
+.parameters-table-body::-webkit-scrollbar {
+  width: 6px;
+}
+
+.parameters-table-body::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+
+.parameters-table-body::-webkit-scrollbar-thumb {
+  background: #cbd5e0;
+  border-radius: 3px;
+}
+
+.parameters-table-body::-webkit-scrollbar-thumb:hover {
+  background: #a0aec0;
+}
+
+
+.unsaved-changes-indicator {
+  color: #e53e3e;
+  font-weight: bold;
+  margin-left: 5px;
+  animation: pulse 2s infinite;
+}
+
+
+
+.button-save-change {
+  background: #4299e1;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  padding: 8px 12px;
+  cursor: pointer;
+  transition: all 0.2s;
+  display: flex; /* РАЗКОММЕНТИРОВАТЬ! */
+  align-items: center;
+  justify-content: center;
+  gap: 8px; /* Добавить отступ между иконкой и текстом */
+  width: 200px;
+  height: 30px;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.button-save-change svg {
+  flex-shrink: 0;
+}
+
+.button-save-change:hover {
+  background: #3182ce;
+  transform: scale(1.05);
+}
+
+.button-save-change .fas {
+  font-size: 14px;
+  color: white;
+}
+
+@keyframes pulse {
+  0% { opacity: 1; }
+  50% { opacity: 0.5; }
+  100% { opacity: 1; }
+}
+
+
+
+
