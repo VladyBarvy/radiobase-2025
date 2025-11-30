@@ -214,35 +214,75 @@ const Sidebar = ({ selectedCategory, onCategorySelect, onComponentSelect, onComp
   };
 
 
-  const handleSaveComponent = async (componentData) => {
-    try {
-      const result = await window.api.database.addComponent(componentData);
-      if (result.success) {
-        console.log('✅ Компонент добавлен:', result.id);
+  // const handleSaveComponent = async (componentData) => {
+  //   try {
+  //     const result = await window.api.database.addComponent(componentData);
+  //     if (result.success) {
+  //       console.log('✅ Компонент добавлен:', result.id);
 
-        // Безопасная проверка: перезагружаем компоненты только если категория выбрана и совпадает
-        if (selectedCategory?.id === componentData.category_id) {
-          await loadComponents(componentData.category_id);
-        }
+  //       // Безопасная проверка: перезагружаем компоненты только если категория выбрана и совпадает
+  //       if (selectedCategory?.id === componentData.category_id) {
+  //         await loadComponents(componentData.category_id);
+  //       }
 
-        // Всегда перезагружаем категории для обновления счетчиков
-        await loadCategories();
+  //       // Всегда перезагружаем категории для обновления счетчиков
+  //       await loadCategories();
 
-        // ВЫЗОВ НОВОГО ПРОПСА - УВЕДОМЛЕНИЕ О СОЗДАНИИ НОВОГО КОМПОНЕНТА
-        if (onComponentUpdated && result.id) {
-          const newComponent = await window.api.database.getComponent(result.id);
-          onComponentUpdated(newComponent);
-        }
+  //       // ВЫЗОВ НОВОГО ПРОПСА - УВЕДОМЛЕНИЕ О СОЗДАНИИ НОВОГО КОМПОНЕНТА
+  //       if (onComponentUpdated && result.id) {
+  //         const newComponent = await window.api.database.getComponent(result.id);
+  //         onComponentUpdated(newComponent);
+  //       }
 
-      } else {
-        alert(`❌ Ошибка: ${result.error}`);
-        throw new Error(result.error);
+  //     } else {
+  //       alert(`❌ Ошибка: ${result.error}`);
+  //       throw new Error(result.error);
+  //     }
+  //   } catch (error) {
+  //     console.error('❌ Ошибка добавления компонента:', error);
+  //     throw error;
+  //   }
+  // };
+
+
+
+	const handleSaveComponent = async (componentData) => {
+  try {
+    console.log('💾 Saving component:', componentData);
+
+    const result = await window.api.database.addComponent(componentData);
+
+    if (result.success) {
+      console.log('✅ Component added successfully, ID:', result.id);
+
+      // Перезагружаем компоненты текущей категории
+      if (selectedCategory?.id === componentData.category_id) {
+        await loadComponents(componentData.category_id);
       }
-    } catch (error) {
-      console.error('❌ Ошибка добавления компонента:', error);
-      throw error;
+
+      // Перезагружаем категории для обновления счетчиков
+      await loadCategories();
+
+      // Уведомление о создании нового компонента
+      if (onComponentUpdated && result.id) {
+        const newComponent = await window.api.database.getComponent(result.id);
+        onComponentUpdated(newComponent);
+      }
+
+      return { success: true };
+
+    } else {
+      console.error('❌ Failed to add component:', result.error);
+      // Показываем более детальную ошибку
+      throw new Error(result.error || 'Неизвестная ошибка при добавлении компонента');
     }
-  };
+  } catch (error) {
+    console.error('❌ Error saving component:', error);
+    // Показываем пользователю детальную ошибку
+    alert(`Ошибка при сохранении компонента: ${error.message}`);
+    throw error;
+  }
+};
 
 
   const handleCategoryClick = (category) => {
